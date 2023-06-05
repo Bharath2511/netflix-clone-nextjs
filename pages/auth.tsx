@@ -1,3 +1,4 @@
+import React from "react";
 import axios from "axios";
 import { useRouter } from "next/router";
 import { signIn } from "next-auth/react";
@@ -63,21 +64,27 @@ const Auth = () => {
               {variant === "register" && (
                 <Input
                   label="Username"
-                  onChange={(e: any) => setName(e.target.value)}
+                  onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+                    setName(e.target.value)
+                  }
                   id="name"
                   value={name}
                 />
               )}
               <Input
                 label="email"
-                onChange={(e: any) => setEmail(e.target.value)}
+                onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+                  setEmail(e.target.value)
+                }
                 id="email"
                 type="email"
                 value={email}
               />
               <Input
                 label="password"
-                onChange={(e: any) => setPassword(e.target.value)}
+                onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+                  setPassword(e.target.value)
+                }
                 id="password"
                 type="password"
                 value={password}
@@ -91,7 +98,7 @@ const Auth = () => {
             </button>
             <div className="flex flex-row items-center gap-4 mt-8 justify-center">
               <div
-                onClick={(e: any) => {
+                onClick={(e: React.ChangeEvent<HTMLInputElement>) => {
                   e.preventDefault();
                   signIn("google", { callbackUrl: "/profiles" });
                 }}
@@ -111,7 +118,7 @@ const Auth = () => {
                 <FcGoogle size={30} />
               </div>
               <div
-                onClick={(e: any) => {
+                onClick={(e: React.ChangeEvent<HTMLInputElement>) => {
                   e.preventDefault();
                   signIn("github", { callbackUrl: "/profiles" });
                 }}
